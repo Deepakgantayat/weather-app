@@ -18,26 +18,26 @@ let SidebarIcon = {
       activeIcon: SidebarIcon.Icon
     },
     {
-      url: "/country2",
-      name: "Country2",
+      url: "/russia",
+      name: "Russia",
       icon: SidebarIcon.Icon,
       activeIcon: SidebarIcon.Icon
     },
     {
-      url: "/country3",
-      name: "Country3",
+      url: "/canada",
+      name: "Canada",
       icon: SidebarIcon.Icon,
       activeIcon: SidebarIcon.Icon
     },
     {
-        url: "/country4",
-        name: "Country4",
+        url: "/australia",
+        name: "Australia",
         icon: SidebarIcon.Icon,
         activeIcon: SidebarIcon.Icon
       },
       {
-        url: "/country5",
-        name: "Country5",
+        url: "/brazil",
+        name: "Brazil",
         icon: SidebarIcon.Icon,
         activeIcon: SidebarIcon.Icon
       }
@@ -61,8 +61,9 @@ class SideNav extends React.Component {
     const { isSidebar } = this.state;
     return (
       <React.Fragment>
-            
-        {isSidebar ? (
+            <div className = "row">
+              <div className = "col-md-2 off-set-2">
+              {isSidebar ? (
           <React.Fragment>
             {sidebarLink.map((obj, index) => (
               <div className="siedbarLinks" key={index}>
@@ -80,6 +81,9 @@ class SideNav extends React.Component {
         ) : (
           ""
         )}
+              </div>
+            </div>
+       
         <style jsx="true">
           {`
             .list-group-item {
@@ -90,6 +94,9 @@ class SideNav extends React.Component {
             }
             .siedbarLinks {
               padding: 0.8rem 0rem 1rem 2rem;
+              background-color: #3F3F3F;
+              height: 6rem;
+              margin-left: 1rem;
             }
             .siedbarLinks1 {
               padding: 0.8rem 0rem 1rem 2rem;
@@ -98,7 +105,7 @@ class SideNav extends React.Component {
               opacity: 0.5;
             }
             .links {
-              color: #000000;
+              color: white;
               opacity: 0.6;
             }
           `}

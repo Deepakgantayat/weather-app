@@ -5,7 +5,7 @@ class Header extends React.Component{
     render(){
         return(
             <div className = "container-fluid">
-    <nav className="navbar"style={{ backgroundColor: '#ff4d4d' }} >
+    <nav className="navbar"style={{ backgroundColor: '#FF7777' }} >
     <a href="#" className="navbar-brand "><img src = "https://seeklogo.com/images/P/partly-sunny-weather-symbo-logo-FE1CF4CAE5-seeklogo.com.gif" style={{height:"3rem", width: "3rem", margin_left: "2rem"}}/></a>
         <ul className="nav justify-content-end">
   
