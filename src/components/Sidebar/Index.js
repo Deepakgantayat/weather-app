@@ -82,7 +82,7 @@ class SideNav extends React.Component {
           ""
         )}
               </div>
-              <div className = "col-md-6"><br/><br/>
+              <div className = "col-md-6"><br/>
                 <img src = "https://videohive.img.customer.envatousercontent.com/files/1616804/Preview_image.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=5891ba8b802b66c8174a9b90534bd7dc" className="weatherimage" alt = ""/>
               </div>
             </div>
@@ -112,7 +112,7 @@ class SideNav extends React.Component {
               opacity: 0.6;
             }
             .weatherimage{
-              margin-left: 7rem;
+              margin-left: 1rem;
               height: 30rem;
               width: 66rem;
             }
