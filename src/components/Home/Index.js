@@ -5,9 +5,13 @@ import SideNav from "../Sidebar/Index"
 class Home extends React.Component{
     render(){
         return(
-            <div>
+            <div className = "column">
+                <div>
                 <Header/>
+                </div>
+                <div>
                 <SideNav/>
+                </div>    
             </div>
         )
     }

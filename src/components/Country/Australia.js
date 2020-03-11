@@ -1,7 +1,5 @@
 import React from "react"
-import axios from "axios"
-
-// let cities = [Mumbai, Delhi, Bangalore, Hyderabad, Ahmedabad, Chennai, Kolakata, Pune, Lucknow, Kanpur]
+import axios from "../../config/axios"
 
 class Australia extends React.Component{
     constructor(props){
@@ -14,19 +12,20 @@ class Australia extends React.Component{
         }
     }
     componentDidMount=() =>{
-        this.state.cities.map(city =>{
-            axios.get(`http://api.weatherstack.com/current?access_key=6ae470ea28f70f3481a461a68dd96cbb&query=${city}`)
-            .then((response) => {
-               const place = response.data.location
-             const weather = response.data.current
-              this.setState({weather:weather, place:place})
-                    // console.log(this.state.weather, "state")
+        Promise.all([axios.get('Sydney'), 
+        axios.get('Melbourne'),
+        axios.get('Brisbane'), 
+        axios.get('Perth'),
+        axios.get('Canberra'),
+        axios.get('Hobart')
+    ])    
+            .then((values) => {
+             const weather = values
+              this.setState({weather:weather})
             })
             .catch((err)=>{
                 console.log(err)
             })
-        })
-        
     }
     
     render(){
@@ -35,7 +34,7 @@ class Australia extends React.Component{
            
             <div className="container mt-5">
                 <br/>
-               <h2> Listing Weather Report - {this.state.cities.length}</h2>
+               <h2> Listing Weather Report Of Australia - {this.state.cities.length}</h2>
                <br/>
                <table className="table">
                    <thead>
@@ -49,14 +48,18 @@ class Australia extends React.Component{
                        </tr>
                    </thead>
                    <tbody>
-                       <tr>
-                       <td>{this.state.place.name}</td>
-                        <td>{this.state.weather.observation_time}</td>
-                        <td>{this.state.weather.temperature}</td>
-                        <td>{this.state.weather.weather_icons}</td>
-                        <td>{this.state.weather.weather_descriptions}</td>
-                        <td>{this.state.weather.wind_speed}</td>
-                       </tr>
+                   {
+                           this.state.weather.map((weathernow,index) =>{
+                               return(<tr key ={index}>
+                                   <td>{weathernow.data.location.name}</td>
+                                    <td>{weathernow.data.current.observation_time}</td>
+                                    <td>{weathernow.data.current.temperature}</td>
+                                    <td>{weathernow.data.current.weather_icons}</td>
+                                    <td>{weathernow.data.current.weather_descriptions}</td>
+                                    <td>{weathernow.data.current.wind_speed}</td>
+                               </tr>)
+                           })
+                       }
                    </tbody>
 
                </table>
